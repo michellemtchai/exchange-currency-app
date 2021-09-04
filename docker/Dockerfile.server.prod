@@ -7,7 +7,9 @@ RUN apk update && apk add \
     postgresql-dev \
     build-base \
     libffi-dev \
-    git
+    git \
+    tzdata \
+    shared-mime-info
 
 # create working directory
 WORKDIR /app
@@ -17,9 +19,7 @@ COPY ./server /app
 
 # install gems
 RUN gem install bundler
-RUN bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
-RUN bundle config set deployment 'true'
-RUN bundle install
+RUN bundle install --jobs 8
 
 # set entrypoint
 COPY ./docker/*.sh /usr/bin/
