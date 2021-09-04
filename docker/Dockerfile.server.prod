@@ -1,0 +1,27 @@
+FROM ruby:2.6.2-alpine
+
+# install need packages
+RUN apk update && apk add \
+    nodejs \
+    postgresql-client \
+    postgresql-dev \
+    build-base \
+    libffi-dev \
+    git
+
+# create working directory
+WORKDIR /app
+
+# copy working directory
+COPY ./server /app
+
+# install gems
+RUN gem install bundler
+RUN bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
+RUN bundle config set deployment 'true'
+RUN bundle install
+
+# set entrypoint
+COPY ./docker/*.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]

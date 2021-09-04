@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+    db:
+        restart: always
+    server:
+        build:
+            context: ..
+            dockerfile: ./docker/Dockerfile.server.prod
+        restart: always
+    client:
+        build:
+            context: ../
+            dockerfile: ./docker/Dockerfile.client.prod
+        restart: always
+        ports:
+            - ${CLIENT_PORT}:80

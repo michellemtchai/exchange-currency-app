@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+    db:
+        image: postgres
+        volumes:
+            - pgdata:${PGDATA}
+        environment:
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            PGDATA: ${PGDATA}
+    server:
+        command: bundle exec rails s -p $SERVER_PORT -b $SERVER_HOST
+        environment:
+            RAILS_ENV: ${RAILS_ENV}
+            SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        ports:
+            - ${SERVER_PORT}:${SERVER_PORT}
+        stdin_open: true
+        depends_on:
+            - db
+    client:
+        environment:
+            NODE_ENV: ${NODE_ENV}
+            CLIENT_PORT: ${CLIENT_PORT}
+        stdin_open: true
+volumes:
+    pgdata: {}

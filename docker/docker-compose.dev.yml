@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+    server:
+        build:
+            context: ..
+            dockerfile: ./docker/Dockerfile.server.dev
+        volumes:
+            - ../server:/app
+    client:
+        build:
+            context: ..
+            dockerfile: ./docker/Dockerfile.client.dev
+        command: yarn start
+        environment:
+            REACT_APP_SERVER_PORT: ${SERVER_PORT}
+            FAST_REFRESH: ${FAST_REFRESH}
+            CHOKIDAR_USEPOLLING: ${CHOKIDAR_USEPOLLING}
+        volumes:
+            - ../client:/app
+        ports:
+            - ${CLIENT_PORT}:${CLIENT_PORT}
