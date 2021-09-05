@@ -9,7 +9,7 @@ const urlBase = `http://localhost:${process.env.REACT_APP_SERVER_PORT}/exchange`
 const incompleteFormMessage =
     'You need to choose a currency for both "From" and "To".';
 
-function CurrencyConverter() {
+function CurrencyConverter({ setError }) {
     const [input, updateInput] = useState(1);
     const [currency1, updateCurrency1] = useState('');
     const [currency2, updateCurrency2] = useState('');
@@ -38,12 +38,12 @@ function CurrencyConverter() {
             const data = await response.json();
             updateFetching(false);
             if (response.status !== 200) {
-                console.error('Error:', data.message);
+                setError('Error: ' + data.message);
             } else {
                 updateResult(data.convertedValue);
             }
         } catch (err) {
-            console.error('Error:', err.message);
+            setError('Error: ' + err.message);
         }
     };
     return (
