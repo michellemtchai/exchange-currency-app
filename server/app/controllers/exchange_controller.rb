@@ -8,7 +8,7 @@ class ExchangeController < ApplicationController
             initValue = Float(params[:value])
         rescue ArgumentError
             render status: :bad_request, json: {
-                message: invalid_value(params[:value])
+                error: invalid_value(params[:value])
             }
             return
         end
