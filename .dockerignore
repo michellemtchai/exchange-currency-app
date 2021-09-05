@@ -5,4 +5,3 @@ node_modules
 .dockerignore
 db/snapshots/*
 vendor/*
-.env

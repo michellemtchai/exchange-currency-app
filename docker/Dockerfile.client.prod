@@ -4,10 +4,13 @@ FROM node:14-alpine as build
 WORKDIR /app
 
 COPY ./client /app
-
-RUN yarn global add react-scripts
-RUN yarn --silent
-RUN yarn build
+COPY ./.env /
+RUN source /.env && \
+    export REACT_APP_SERVER_PORT=$SERVER_PORT && \
+    yarn global add react-scripts && \
+    yarn --silent && \
+    yarn build && \
+    rm /.env
 
 
 # stage 2 - build the final image and copy the react build files
