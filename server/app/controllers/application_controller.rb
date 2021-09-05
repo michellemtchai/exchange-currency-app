@@ -3,6 +3,6 @@ class ApplicationController < ActionController::API
     rescue_from StandardError, with: :handle_error
 
     def handle_error(exception)
-      render json: { error: exception.message }, status: :bad_request
+      render json: { message: exception.message }, status: :bad_request
     end
 end

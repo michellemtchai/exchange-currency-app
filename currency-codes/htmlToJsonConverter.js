@@ -33,7 +33,7 @@ const writeJsonFile = (file, data, action) => {
 };
 readFile('./currency-table.txt', (fileData) => {
     const data = cleanUpData(fileData);
-    writeJsonFile('../client/src/currency.json', data, () =>
+    writeJsonFile('../client/src/components/currency.json', data, () =>
         console.log('Finished converting data.')
     );
 });

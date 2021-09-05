@@ -17,6 +17,7 @@ services:
             POSTGRES_DB: ${POSTGRES_DB}
             POSTGRES_USER: ${POSTGRES_USER}
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            CLIENT_PORT: ${CLIENT_PORT}
         ports:
             - ${SERVER_PORT}:${SERVER_PORT}
         stdin_open: true
@@ -26,6 +27,7 @@ services:
         environment:
             NODE_ENV: ${NODE_ENV}
             CLIENT_PORT: ${CLIENT_PORT}
+            REACT_APP_SERVER_PORT: ${SERVER_PORT}
         stdin_open: true
 volumes:
     pgdata: {}

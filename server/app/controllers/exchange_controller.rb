@@ -7,10 +7,7 @@ class ExchangeController < ApplicationController
         begin
             initValue = Float(params[:value])
         rescue ArgumentError
-            render status: :bad_request, json: {
-                error: invalid_value(params[:value])
-            }
-            return
+            raise StandardError.new invalid_value(params[:value])
         end
         curr1Code = params[:currency1].upcase
         curr2Code = params[:currency2].upcase
