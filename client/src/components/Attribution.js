@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Attribution.module.css';
 
 function Attribution() {
     return (
-        <a href="https://www.exchangerate-api.com">
+        <a className={styles.link} href="https://www.exchangerate-api.com">
             Rates By Exchange Rate API
         </a>
     );

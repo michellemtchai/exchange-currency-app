@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './ConversionResult.module.css';
 
 function ConversionResult({ value, update }) {
     const [result, updateResult] = useState(value);
@@ -6,12 +7,10 @@ function ConversionResult({ value, update }) {
         updateResult(value);
     }, [value]);
     return (
-        result && (
-            <fieldset>
-                <label>Conversion Result: </label>
-                <p>{result}</p>
-            </fieldset>
-        )
+        <fieldset className={styles.field}>
+            <label>Conversion Result: </label>
+            <p>{result}</p>
+        </fieldset>
     );
 }
 

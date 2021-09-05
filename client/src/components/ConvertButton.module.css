@@ -1,0 +1,23 @@
+.button {
+    font-size: 24px;
+    padding: 15px 0;
+    border: none;
+    background: #2a73a3;
+    color: #fff;
+    cursor: pointer;
+}
+.button:hover {
+    background: #1b4d6e;
+}
+.button:active {
+    background: #0f2b3d;
+}
+.button[disabled] {
+    cursor: not-allowed;
+}
+.button[disabled]:hover {
+    background: #2a73a3;
+}
+.button[disabled]:active {
+    background: #2a73a3;
+}

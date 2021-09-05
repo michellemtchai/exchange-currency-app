@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import CurrencySelector from './CurrencySelector';
 import ConversionInput from './ConversionInput';
+import ConvertButton from './ConvertButton';
 import ConversionResult from './ConversionResult';
+import styles from './CurrencyConverter.module.css';
 
 const urlBase = `http://localhost:${process.env.REACT_APP_SERVER_PORT}/exchange`;
 const incompleteFormMessage =
@@ -11,7 +13,8 @@ function CurrencyConverter() {
     const [input, updateInput] = useState(1);
     const [currency1, updateCurrency1] = useState('');
     const [currency2, updateCurrency2] = useState('');
-    const [result, updateResult] = useState('');
+    const [result, updateResult] = useState('N/A');
+    const [fetching, updateFetching] = useState(false);
     const swapUnit = (event) => {
         event.preventDefault();
         const temp = currency1;
@@ -28,10 +31,12 @@ function CurrencyConverter() {
     };
     const handleConversion = async () => {
         try {
+            updateFetching(true);
             const response = await fetch(
                 `${urlBase}/${currency1}/${currency2}?value=${input}`
             );
             const data = await response.json();
+            updateFetching(false);
             if (response.status !== 200) {
                 console.error('Error:', data.message);
             } else {
@@ -42,22 +47,27 @@ function CurrencyConverter() {
         }
     };
     return (
-        <form onSubmit={onSubmit}>
+        <form className={styles.form} onSubmit={onSubmit}>
             <ConversionInput value={input} update={updateInput} />
-            <fieldset>
+            <fieldset className={styles.currencyFields}>
                 <CurrencySelector
                     label="From"
                     value={currency1}
                     update={updateCurrency1}
                 />
-                <input type="button" onClick={swapUnit} value="&#8644;" />
+                <input
+                    className={styles.swapButton}
+                    type="button"
+                    onClick={swapUnit}
+                    value="&#8644;"
+                />
                 <CurrencySelector
                     label="To"
                     value={currency2}
                     update={updateCurrency2}
                 />
             </fieldset>
-            <input type="submit" value="Convert" />
+            <ConvertButton fetching={fetching} />
             <ConversionResult value={result} />
         </form>
     );

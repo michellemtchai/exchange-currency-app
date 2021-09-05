@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './ConversionInput.module.css';
 
 function ConversionInput({ value, update }) {
     const [input, updateInput] = useState(value);
@@ -11,7 +12,7 @@ function ConversionInput({ value, update }) {
         update(newInput);
     };
     return (
-        <fieldset>
+        <fieldset className={styles.field}>
             <label>Conversion Input: </label>
             <input
                 type="number"
