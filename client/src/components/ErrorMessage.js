@@ -14,7 +14,7 @@ function ErrorMessage({ value, update }) {
     return (
         error && (
             <div className={styles.error}>
-                <p>{error}</p>
+                <p>Error: {error}</p>
                 <button onClick={closeMessage}>&times;</button>
             </div>
         )

@@ -38,12 +38,12 @@ function CurrencyConverter({ setError }) {
             const data = await response.json();
             updateFetching(false);
             if (response.status !== 200) {
-                setError('Error: ' + data.message);
+                setError(data.message);
             } else {
                 updateResult(data.convertedValue);
             }
         } catch (err) {
-            setError('Error: ' + err.message);
+            setError(err.message);
         }
     };
     return (
