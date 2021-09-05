@@ -16,6 +16,7 @@ function ConversionInput({ value, update }) {
             <input
                 type="number"
                 step="0.01"
+                min="0"
                 value={input}
                 onChange={updateValue}
             />
