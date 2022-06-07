@@ -29,6 +29,3 @@ docker-compose down -v
 docker-compose build
 docker-compose up
 ```
-
-## Miscellaneous
-I left the code for how I got the codes for the currency in the `currency-codes` folder. In short, scraped the table on the [currency codes page](https://www.exchangerate-api.com/docs/supported-currencies) of the Currency Exchange API site and turned it into a JSON file. You will need `nodejs` to run this script.
