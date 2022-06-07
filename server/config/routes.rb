@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   scope 'exchange' do
     get '/:currency1/:currency2', to: 'exchange#convert'
   end
+
+  root :to => 'index'
 end

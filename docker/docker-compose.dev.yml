@@ -4,6 +4,11 @@ services:
         build:
             context: ..
             dockerfile: ./docker/Dockerfile.server.dev
+        environment:
+            RAILS_ENV: ${RAILS_ENV}
+            SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+            DATABASE_URL: db://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db/${POSTGRES_DB}
+            CLIENT_PORT: ${CLIENT_PORT}
         volumes:
             - ../server:/app
     client:

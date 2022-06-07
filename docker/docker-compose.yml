@@ -14,9 +14,6 @@ services:
         environment:
             RAILS_ENV: ${RAILS_ENV}
             SECRET_KEY_BASE: ${SECRET_KEY_BASE}
-            POSTGRES_DB: ${POSTGRES_DB}
-            POSTGRES_USER: ${POSTGRES_USER}
-            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
             CLIENT_PORT: ${CLIENT_PORT}
         ports:
             - ${SERVER_PORT}:${SERVER_PORT}
