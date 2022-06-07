@@ -14,3 +14,14 @@
 #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
 #   end
 # end
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    if ENV['RAILS_ENV'] == 'development'
+      origins "http://localhost:#{ENV['CLIENT_PORT']}"
+
+      resource '*',
+        headers: :any,
+        methods: [:get]
+    end
+  end
+end

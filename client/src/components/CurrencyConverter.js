@@ -5,7 +5,10 @@ import ConvertButton from './ConvertButton';
 import ConversionResult from './ConversionResult';
 import styles from './CurrencyConverter.module.css';
 
-const urlBase = `http://localhost:${process.env.REACT_APP_SERVER_PORT}/exchange`;
+const urlBase =
+    process.env.NODE_ENV === 'production'
+        ? ''
+        : `http://localhost:${process.env.REACT_APP_SERVER_PORT}`;
 const incompleteFormMessage =
     'You need to choose a currency for both "From" and "To".';
 
@@ -32,8 +35,9 @@ function CurrencyConverter({ setError }) {
     const handleConversion = async () => {
         try {
             updateFetching(true);
+            console.log('URL', urlBase);
             const response = await fetch(
-                `${urlBase}/${currency1}/${currency2}?value=${input}`
+                `${urlBase}/exchange/${currency1}/${currency2}?value=${input}`
             );
             const data = await response.json();
             updateFetching(false);
