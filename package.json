@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "postinstall": "cd ./client"
+    "postinstall": "cd ./client && chmod u+x ./docker/heroku.sh && ./docker/heroku.sh"
   }
 }

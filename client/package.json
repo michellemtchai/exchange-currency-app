@@ -11,7 +11,6 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "postinstall": "chmod u+x ./docker/heroku.sh && ./docker/heroku.sh",
     "start": "PORT=\"$CLIENT_PORT\" react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
