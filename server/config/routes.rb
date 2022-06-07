@@ -4,5 +4,7 @@ Rails.application.routes.draw do
     get '/:currency1/:currency2', to: 'exchange#convert'
   end
 
-  root :to => 'index'
+  if ENV['RAILS_ENV'] == 'production'
+    root to: redirect('index.html')
+  end
 end
