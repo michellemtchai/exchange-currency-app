@@ -8,3 +8,6 @@ REACT_APP_SERVER_PORT=$PORT npx react-scripts build
 
 # copy files
 mv -v ./build/* ../server/public/
+
+# prevent precompile
+mkdir ../server/public/assets
