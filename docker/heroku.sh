@@ -10,3 +10,4 @@ echo "files moved"
 
 # move to server
 cd ../server
+echo "moved to server"

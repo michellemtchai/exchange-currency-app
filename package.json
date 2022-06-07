@@ -1,6 +1,6 @@
 {
   "scripts": {
     "postinstall": "cd ./client && yarn build",
-    "start": "ls ./server"
+    "start": "ls"
   }
 }
