@@ -1,6 +1,6 @@
 {
   "scripts": {
     "postinstall": "cd ./client && chmod u+x ../docker/heroku.sh && ../docker/heroku.sh",
-    "start": "DATABASE_URL=$DATABASE bundle exec rails s -p $PORT"
+    "start": "cd ./server"
   }
 }
