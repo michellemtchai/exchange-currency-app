@@ -10,10 +10,6 @@ You will need to first setup the environmental variable by running the following
 ```
 cp ./docker/dev.env .env
 ```
-### Production
-```
-cp ./docker/prod.env .env
-```
 ### Seeing the App
 You need to run `docker-compose up` to get the app running. Then, you can access the server side via the following url:
 ```
