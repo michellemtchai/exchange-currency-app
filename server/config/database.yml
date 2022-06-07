@@ -7,7 +7,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE'] %>
   min_messages: WARNING
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
