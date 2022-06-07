@@ -1,8 +1,8 @@
 #! /bin/sh
 
 # install packages
-yarn --silent
-REACT_APP_SERVER_PORT=$PORT yarn build
+npm install
+REACT_APP_SERVER_PORT=$PORT npm run build
 
 # copy files
 mv ./build/* ../server/public/
