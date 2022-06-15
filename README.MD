@@ -21,11 +21,3 @@ http://localhost:8080
 ```
 The below is what you should see in your browser:
 ![Client Side App](./screenshot.png)
-
-### Switching between Modes
-You need to change the `.env` using the commands mentioned in the previous sections. Then, you need to run the following:
-```
-docker-compose down -v
-docker-compose build
-docker-compose up
-```
