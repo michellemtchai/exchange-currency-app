@@ -1,1 +1,0 @@
-Dir.chdir "server"
