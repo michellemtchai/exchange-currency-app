@@ -1,4 +1,4 @@
-FROM ruby:2.6.2-alpine
+FROM ruby:3.0.3-alpine3.13
 
 # install need packages
 RUN apk update && apk add \
