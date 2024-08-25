@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Api
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 7.0
     config.assets.precompile = []
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
