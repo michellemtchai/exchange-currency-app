@@ -35,6 +35,6 @@ module Api
     config.api_only = false
 
     # sets fallbacks
-    config.i18n.fallbacks = [:en]
+    config.i18n.fallbacks = [I18n.default_locale]
   end
 end
