@@ -1,10 +1,12 @@
 #! /bin/sh
 
+cd ./client
+
 # install packages
 yarn install --production
 
 # build app
-REACT_APP_SERVER_PORT=$PORT npx react-scripts build
+yarn build
 
 # copy files
 mv -v ./build/* ../server/public/

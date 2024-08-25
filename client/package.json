@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "PORT=\"$CLIENT_PORT\" react-scripts start",
-    "build": "chmod u+x ../docker/heroku.sh && ../docker/heroku.sh",
+    "build": "REACT_APP_SERVER_PORT=$PORT npx react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

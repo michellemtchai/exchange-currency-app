@@ -1,0 +1,8 @@
+services:
+  - type: web
+    plan: free
+    name: exchange-currency
+    runtime: ruby
+    repo: https://github.com/michellemtchai/exchange-currency-app.git
+    buildCommand: './docker/heroku.sh && ./server/bin/render-build.sh'
+    startCommand: 'bundle exec rails server'
