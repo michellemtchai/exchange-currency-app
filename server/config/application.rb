@@ -34,7 +34,7 @@ module Api
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = false
 
-    # sets the fallback to the default local
-    config.i18n.fallbacks = true
+    # sets fallbacks
+    config.i18n.fallbacks = [:en]
   end
 end
