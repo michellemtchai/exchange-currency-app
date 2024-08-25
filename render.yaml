@@ -5,4 +5,4 @@ services:
     runtime: ruby
     repo: https://github.com/michellemtchai/exchange-currency-app.git
     buildCommand: './docker/heroku.sh && ./server/bin/render-build.sh'
-    startCommand: 'bundle exec rails server'
+    startCommand: 'cd ./server && bundle exec rails server'
