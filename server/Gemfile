@@ -38,3 +38,4 @@ group :development do
 end
 
 gem 'rack-cors'
+gem 'psych', '< 4'
