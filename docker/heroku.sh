@@ -13,3 +13,4 @@ mv -v ./build/* ../server/public/
 
 # prevent precompile
 mkdir ../server/public/assets
+cd ..
